@@ -1,14 +1,17 @@
+'use strict'
+
 const express = require('express'),
     router = express.Router(),
     bcrypt = require('bcryptjs'),
     UsersModel = require('../models/users');
 
 // GET users listing. 
-router.get('/signup', (req, res) => {
+router.get('/signup', (req, res, next) => {
     res.render('template', {
         locals: {
             title: 'Register Here!',
             is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
         },
         partials: {
             body: 'partials/signup',
@@ -16,11 +19,12 @@ router.get('/signup', (req, res) => {
     });
 });
 
-router.get('/login', (req, res) => {
+router.get('/login', (req, res, next) => {
     res.render('template', {
         locals: {
             title: 'User Log In',
             is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
         },
         partials: {
             body: 'partials/login',
@@ -54,7 +58,7 @@ router.post('/signup', async(req, res) => {
 
 router.post('/login', async(req, res) => {
     const { username, password } = req.body;
-    const user = new UsersModel(username, password);
+    const user = new UsersModel(null, username, password);
     const response = await user.login();
 
     if (!!response.isValid) {

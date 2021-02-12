@@ -28,8 +28,9 @@ CREATE TABLE reviews (
 CREATE TABLE my_movies_list (
     id serial PRIMARY KEY,
     list_title varchar(100),
+    movie_id varchar(100),
     user_id integer REFERENCES users (id),
-    movie_id integer REFERENCES movies (id)
+    -- movie_id integer REFERENCES movies (id)
 );
 
 CREATE TABLE my_movies_inside_list (

@@ -1,0 +1,9 @@
+<h1>My Movie Lists</h1>
+
+${playlistData.map(list => `
+<div>
+    <a href="/myplaylists/${list.id}">
+        <p class="title is-4 has-text-white-bis">${playlist.list_title}</p>
+    </a>
+</div>
+<br>` ).join('')}

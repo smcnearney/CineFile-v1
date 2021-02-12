@@ -1,0 +1,13 @@
+<h1>${title}</h1>
+
+<div class="output">
+    <p>${popularMovieData.map(popular => `
+        <ul>
+            <li>
+                <a href='./movies/${popular.id}'><img src="https://image.tmdb.org/t/p/w500/${popular.poster_path}" alt="${popular.title} Poster" /></a>
+            </li>
+            <li>${popular.title}</li>
+            <li class="imdb-logo">${popular.release_date}</li>
+            <li><a href='./movies/${popular.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>

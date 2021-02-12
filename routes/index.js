@@ -9,7 +9,9 @@ const express = require('express'),
 router.get('/', async(req, res, next) => {
     res.render('template', {
         locals: {
-            title: 'Welcome to the greatest movie site in the world!',
+            title: 'CineFILE',
+            is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
         },
         partials: {
             body: 'partials/home',

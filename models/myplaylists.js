@@ -1,4 +1,5 @@
 'use strict'
+
 const db = require('./conn.js');
 
 class Lists {
@@ -6,11 +7,10 @@ class Lists {
         this.id = id;
         this.list_title = list_title;
         this.movie_id = movie_id;
-        this.user_id = user_id;
     }
-    async getList() {
+    static async getList() {
         try {
-            const response = await db.any(`SELECT * FROM my_movies_list WHERE id = ${this.id};`);
+            const response = await db.any(`SELECT * FROM my_movies_list;`);
             return response;
         } catch (err) {
             return err.message;
