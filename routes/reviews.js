@@ -1,21 +1,23 @@
 "use strict";
 
 const express = require("express"),
-  router = express.Router(),
-  ReviewsModel = require("../models/reviews");
+    router = express.Router(),
+    ReviewsModel = require("../models/reviews");
 
-router.post("/add", async (req, res) => {
-  const { reviews_id, score, content } = req.body;
-  const Reviews = new ReviewsModel(null, reviews_id, score, content);
-  const response = await Reviews.addReview();
-  if (response.rowCount >= 1) {
-    res.redirect("back");
-  } else {
-    res.sendStatus(600);
-  }
+router.post("/add", async(req, res) => {
+    const { user_id, movie_id, review_content, score, tmdb_id } = req.body;
+    console.log("Add a Review", req.body);
+    const Review = new ReviewsModel(null, score, user_id, review_content, movie_id, tmdb);
+    const response = await Review.addReview();
+    console.log(response)
+    if (response.rowCount >= 1) {
+        res.redirect("back");
+    } else {
+        res.sendStatus(600);
+    }
 });
 router.post("/delete", (req, res) => {
-  console.log("Delete review");
+    console.log("Delete review");
 });
 
 module.exports = router;
