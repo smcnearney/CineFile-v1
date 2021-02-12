@@ -18,9 +18,21 @@
         "express-es6-template-engine": "^2.2.3",
         "express-session": "^1.17.1",
         "node-fetch": "^2.6.1",
+        "pg": "^8.5.1",
         "pg-promise": "^10.9.2",
-        "sequelize-cli": "^6.2.0",
+        "sequelize": "^6.5.0",
         "slugify": "^1.4.6"
     },
-    "description": "App for cinnamons and cinephiles everywhere!"
+    "description": "App for cinnamons and cinephiles everywhere!",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/smcnearney/CineFile-v1.git"
+    },
+    "bugs": {
+        "url": "https://github.com/smcnearney/CineFile-v1/issues"
+    },
+    "homepage": "https://github.com/smcnearney/CineFile-v1#readme",
+    "devDependencies": {
+        "sequelize-cli": "^6.2.0"
+    }
 }
