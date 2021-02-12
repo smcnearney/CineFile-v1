@@ -8,12 +8,16 @@ html {
 
 body {
     background-color: rgba(0, 0, 0, 0.7);
-    margin: 110px 0px 0px 0px;
     height: 100%;
 }
 
 section {
-    padding: 100px 50px 100px 50px;
+    padding: 25px 50px 25px 50px;
+    height: 100%;
+}
+
+.height100vh {
+    height: 100vh;
 }
 
 h1 {
@@ -300,6 +304,12 @@ flex-basis: 300px;  */
     
     .main-nav-menu > li a:hover {
         color: rgb(234,215,65);
+    }
+
+    body {
+        margin: 110px 0px 0px 0px;
+        background-color: rgba(0, 0, 0, 0.7);
+        height: 100%;
     }
 
     .details h1,
