@@ -1,23 +1,26 @@
 {
-  "name": "CineFile-v1",
-  "version": "1.0.0",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "express": "^4.17.1",
-    "express-es6-template-engine": "^2.2.3",
-    "express-session": "^1.17.1",
-    "pg-promise": "^10.9.2",
-    "sequelize-cli": "^6.2.0"
-  },
-  "devDependencies": {},
-  "description": ""
+    "name": "CineFile-v1",
+    "version": "1.0.0",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "keywords": [],
+    "author": "Hilda Robles, Stephen McNearney, Susan Yun",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "bcryptjs": "^2.4.3",
+        "bulma-carousel": "^4.0.24",
+        "express": "^4.17.1",
+        "express-es6-template-engine": "^2.2.3",
+        "express-session": "^1.17.1",
+        "node-fetch": "^2.6.1",
+        "pg-promise": "^10.9.2",
+        "sequelize-cli": "^6.2.0",
+        "slugify": "^1.4.6"
+    },
+    "description": "App for cinnamons and cinephiles everywhere!"
 }

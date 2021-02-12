@@ -1,0 +1,336 @@
+<section>
+<h1>Trending</h1>
+
+<div class="output">
+    <p>${popularMovieData.map(popular => `
+        <ul>
+            <li>
+                <a href='./movies/${popular.id}'><img src="https://image.tmdb.org/t/p/w500/${popular.poster_path}" alt="${popular.title} Poster" /></a>
+            </li>
+            <li>${popular.title}</li>
+            <li>${popular.release_date}</li>
+            <li><a href='./movies/${popular.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+<section id="action">
+<h1>Action</h1>
+
+<div class="output">
+    <p>${actionMovieData.map(action => `
+        <ul>
+            <li>
+                <a href='./movies/${action.id}'><img src="https://image.tmdb.org/t/p/w500/${action.poster_path}" alt="${action.title} Poster" /></a>
+            </li>
+            <li>${action.title}</li>
+            <li>${action.release_date}</li>
+            <li><a href='./movies/${action.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+<section id="adventure">
+<h1>Adventure</h1>
+
+<div class="output">
+    <p>${adventureMovieData.map(adventure => `
+        <ul>
+            <li>
+                <a href='./movies/${adventure.id}'><img src="https://image.tmdb.org/t/p/w500/${adventure.poster_path}" alt="${adventure.title} Poster" /></a>
+            </li>
+            <li>${adventure.title}</li>
+            <li>${adventure.release_date}</li>
+            <li><a href='./movies/${adventure.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="animation">
+<h1>Animation</h1>
+    
+<div class="output">
+    <p>${animationMovieData.map(animation => `
+        <ul>
+            <li>
+                <a href='./movies/${animation.id}'><img src="https://image.tmdb.org/t/p/w500/${animation.poster_path}" alt="${animation.title} Poster" /></a>
+            </li>
+            <li>${animation.title}</li>
+            <li>${animation.release_date}</li>
+            <li><a href='./movies/${animation.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="comedy">
+<h1>Comedy</h1>
+
+<div class="output">
+    <p>${comedyMovieData.map(comedy => `
+        <ul>
+            <li>
+                <a href='./movies/${comedy.id}'><img src="https://image.tmdb.org/t/p/w500/${comedy.poster_path}" alt="${comedy.title} Poster" /></a>
+            </li>
+            <li>${comedy.title}</li>
+            <li>${comedy.release_date}</li>
+            <li><a href='./movies/${comedy.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="crime">
+<h1>Crime</h1>
+
+<div class="output">
+    <p>${crimeMovieData.map(crime => `
+        <ul>
+            <li>
+                <a href='./movies/${crime.id}'><img src="https://image.tmdb.org/t/p/w500/${crime.poster_path}" alt="${crime.title} Poster" /></a>
+            </li>
+            <li>${crime.title}</li>
+            <li>${crime.release_date}</li>
+            <li><a href='./movies/${crime.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+    
+
+<section id="documentary">
+<h1>Documentary</h1>
+
+<div class="output">
+    <p>${documentaryMovieData.map(documentary => `
+        <ul>
+            <li>
+                <a href='./movies/${documentary.id}'><img src="https://image.tmdb.org/t/p/w500/${documentary.poster_path}" alt="${documentary.title} Poster" /></a>
+            </li>
+            <li>${documentary.title}</li>
+            <li>${documentary.release_date}</li>
+            <li><a href='./movies/${documentary.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="drama">
+<h1>Drama</h1>
+
+<div class="output">
+    <p>${dramaMovieData.map(drama => `
+        <ul>
+            <li>
+                <a href='./movies/${drama.id}'><img src="https://image.tmdb.org/t/p/w500/${drama.poster_path}" alt="${drama.title} Poster" /></a>
+            </li>
+            <li>${drama.title}</li>
+            <li>${drama.release_date}</li>
+            <li><a href='./movies/${drama.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="family">
+<h1>Family</h1>
+
+<div class="output">
+    <p>${familyMovieData.map(family => `
+        <ul>
+            <li>
+                <a href='./movies/${family.id}'><img src="https://image.tmdb.org/t/p/w500/${family.poster_path}" alt="${family.title} Poster" /></a>
+            </li>
+            <li>${family.title}</li>
+            <li>${family.release_date}</li>
+            <li><a href='./movies/${family.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="fantasy">
+<h1>Fantasy</h1>
+
+<div class="output">
+    <p>${fantasyMovieData.map(fantasy => `
+        <ul>
+            <li>
+                <a href='./movies/${fantasy.id}'><img src="https://image.tmdb.org/t/p/w500/${fantasy.poster_path}" alt="${fantasy.title} Poster" /></a>
+            </li>
+            <li>${fantasy.title}</li>
+            <li>${fantasy.release_date}</li>
+            <li><a href='./movies/${fantasy.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="history">
+<h1>History</h1>
+
+<div class="output">
+    <p>${historyMovieData.map(history => `
+        <ul>
+            <li>
+                <a href='./movies/${history.id}'><img src="https://image.tmdb.org/t/p/w500/${history.poster_path}" alt="${history.title} Poster" /></a>
+            </li>
+            <li>${history.title}</li>
+            <li>${history.release_date}</li>
+            <li><a href='./movies/${history.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="horror">
+<h1>Horror</h1>
+
+<div class="output">
+    <p>${horrorMovieData.map(horror => `
+        <ul>
+            <li>
+                <a href='./movies/${horror.id}'><img src="https://image.tmdb.org/t/p/w500/${horror.poster_path}" alt="${horror.title} Poster" /></a>
+            </li>
+            <li>${horror.title}</li>
+            <li>${horror.release_date}</li>
+            <li><a href='./movies/${horror.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="music">
+<h1>Music</h1>
+
+<div class="output">
+    <p>${musicMovieData.map(music => `
+        <ul>
+            <li>
+                <a href='./movies/${music.id}'><img src="https://image.tmdb.org/t/p/w500/${music.poster_path}" alt="${music.title} Poster" /></a>
+            </li>
+            <li>${music.title}</li>
+            <li>${music.release_date}</li>
+            <li><a href='./movies/${music.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="mystery">
+<h1>Mystery</h1>
+
+<div class="output">
+    <p>${mysteryMovieData.map(mystery => `
+        <ul>
+            <li>
+                <a href='./movies/${mystery.id}'><img src="https://image.tmdb.org/t/p/w500/${mystery.poster_path}" alt="${mystery.title} Poster" /></a>
+            </li>
+            <li>${mystery.title}</li>
+            <li>${mystery.release_date}</li>
+            <li><a href='./movies/${mystery.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="romance">
+<h1>Romance</h1>
+
+<div class="output">
+    <p>${romanceMovieData.map(romance => `
+        <ul>
+            <li>
+                <a href='./movies/${romance.id}'><img src="https://image.tmdb.org/t/p/w500/${romance.poster_path}" alt="${romance.title} Poster" /></a>
+            </li>
+            <li>${romance.title}</li>
+            <li>${romance.release_date}</li>
+            <li><a href='./movies/${romance.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="scifi">
+<h1>Science-Fiction</h1>
+
+<div class="output">
+    <p>${scifiMovieData.map(scifi => `
+        <ul>
+            <li>
+                <a href='./movies/${scifi.id}'><img src="https://image.tmdb.org/t/p/w500/${scifi.poster_path}" alt="${scifi.title} Poster" /></a>
+            </li>
+            <li>${scifi.title}</li>
+            <li>${scifi.release_date}</li>
+            <li><a href='./movies/${scifi.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="tvmovies">
+<h1>TV Movies</h1>
+
+<div class="output">
+    <p>${tvmoviesMovieData.map(scifi => `
+        <ul>
+            <li>
+                <a href='./movies/${tvmovies.id}'><img src="https://image.tmdb.org/t/p/w500/${tvmovies.poster_path}" alt="${tvmovies.title} Poster" /></a>
+            </li>
+            <li>${tvmovies.title}</li>
+            <li>${tvmovies.release_date}</li>
+            <li><a href='./movies/${tvmovies.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="thriller">
+<h1>Thriller</h1>
+
+<div class="output">
+    <p>${thrillerMovieData.map(scifi => `
+        <ul>
+            <li>
+                <a href='./movies/${thriller.id}'><img src="https://image.tmdb.org/t/p/w500/${thriller.poster_path}" alt="${thriller.title} Poster" /></a>
+            </li>
+            <li>${thriller.title}</li>
+            <li>${thriller.release_date}</li>
+            <li><a href='./movies/${thriller.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="war">
+<h1>War</h1>
+
+<div class="output">
+    <p>${warMovieData.map(war => `
+        <ul>
+            <li>
+                <a href='./movies/${war.id}'><img src="https://image.tmdb.org/t/p/w500/${war.poster_path}" alt="${war.title} Poster" /></a>
+            </li>
+            <li>${war.title}</li>
+            <li>${war.release_date}</li>
+            <li><a href='./movies/${war.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>
+
+
+<section id="western">
+<h1>Western</h1>
+
+<div class="output">
+    <p>${westernMovieData.map(western => `
+        <ul>
+            <li>
+                <a href='./movies/${western.id}'><img src="https://image.tmdb.org/t/p/w500/${western.poster_path}" alt="${western.title} Poster" /></a>
+            </li>
+            <li>${western.title}</li>
+            <li>${western.release_date}</li>
+            <li><a href='./movies/${western.id}'>Read More</a></li>
+        </ul>`).join('')}</p>
+</div>
+</section>

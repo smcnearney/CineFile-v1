@@ -15,10 +15,11 @@ app.set('view engine', 'html');
 
 app.use(session({
     secret: 'get rad!',
-    is_logged_in: false,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    is_logged_in: false,
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
@@ -30,6 +31,13 @@ SERVER.listen(PORT, HOSTNAME, () => {
 });
 
 const rootController = require('./routes/index');
-    
-app.use('/', rootController);
+const moviesController = require('./routes/movies');
+const reviewsController = require('./routes/reviews');
+const usersController = require('./routes/users');
+const myplaylistsController = require('./routes/myplaylists');
 
+app.use('/', rootController);
+app.use('/movies', moviesController);
+app.use('/reviews', reviewsController);
+app.use('/users', usersController);
+app.use('/myplaylists', myplaylistsController);
