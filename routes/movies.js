@@ -32,14 +32,14 @@ router.get("/:id", async(req, res, next) => {
     const Movie = new MoviesModel(movieID);
     const singleMovieData = await Movie.getMovieData(movieID);
     console.log('single movie:', singleMovieData);
-    // const Reviews = new ReviewsModel(null, movieID);
-    // const reviewData = await Reviews.getAllReviewsForSingleMovie();
+    const Reviews = new ReviewsModel(null, movieID);
+    const reviewData = await Reviews.getAllReviewsForSingleMovie();
 
     res.render("template", {
         locals: {
             title: singleMovieData.title,
             singleMovieData,
-            // reviewData,
+            reviewData,
             is_logged_in: req.session.is_logged_in,
             user_id: req.session.user_id
         },

@@ -11,6 +11,9 @@ router.get("/", async(req, res, next) => {
         locals: {
             title: 'My Playlists',
             playlistData: playlistData,
+            is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
+
             // reviewData,
         },
         partials: {
@@ -42,6 +45,8 @@ router.get("/:list_id", async(req, res) => {
         locals: {
             title: listData.title,
             listData,
+            is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
         },
         partials: {
             body: "partials/single-playlist",

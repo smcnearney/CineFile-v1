@@ -15,9 +15,9 @@ app.set('view engine', 'html');
 
 app.use(session({
     secret: 'get rad!',
-    is_logged_in: false,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    is_logged_in: false,
 }));
 
 app.use(express.json());

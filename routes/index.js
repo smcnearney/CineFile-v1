@@ -10,6 +10,8 @@ router.get('/', async(req, res, next) => {
     res.render('template', {
         locals: {
             title: 'CineFILE',
+            is_logged_in: req.session.is_logged_in,
+            user_id: req.session.user_id
         },
         partials: {
             body: 'partials/home',

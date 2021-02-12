@@ -17,11 +17,16 @@
     <nav class="main-nav">
         <h1 class="main-nav-title">CineFile</h1>
         <ul class="main-nav-menu">
-            <li><a href='/'>Home</a></li>
-        <li><a href='/users/login'>Login</a></li>
-        <li><a href='/users/logout'>Logout</a></li>
+        <li><a href='/'>Home</a></li>
+        ${!!is_logged_in ? `
+            <li><a href='/users/logout'>Logout</a></li>
+            <li><a href='/myplaylists'>My Lists</a></li>
+            ` : `
+            <li><a href='/users/signup'>Register</a></li>
+            <li><a href='/users/login'>Login</a></li>
+            `
+        }
         <li><a href='/movies'>Movies</a></li>
-        <li><a href='/myplaylists'>My Lists</a></li>
         </ul>
     </nav>
 </header>
