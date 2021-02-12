@@ -7,7 +7,7 @@ const MoviesModel = require("../models/allmovies");
 const ReviewsModel = require("../models/reviews");
 
 router.get("/", async(req, res, next) => {
-    const popularMovieData = await MoviesModel.getAllMovies();
+    const popularMovieData = await MoviesModel.getPopularMovies();
     console.log(popularMovieData);
 
     res.render("template", {

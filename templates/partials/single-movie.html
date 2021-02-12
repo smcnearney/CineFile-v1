@@ -9,8 +9,9 @@
     <p><span class="yellow"><a href="${singleMovieData.homepage}" target="_blank"><strong>Website</strong></a></span><br /></p>
     </div>
 </div>
-    
-    
-    
-    
-    
+<div class="my-movies">
+    <form name="my-movies" action="/myplaylists/newMovie" method="POST" class="form">
+      <input type="hidden" value="${singleMovieData.id}" name="movie_id">
+      <button type="submit">Add to My Movies</button>
+    </form>
+</div>

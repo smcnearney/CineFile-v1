@@ -21,7 +21,7 @@ class AllMovies {
 
     };
 
-    static async getAllMovies() {
+    static async getPopularMovies() {
         try {
             const popularMovieData = await fetch(
                 "https://api.themoviedb.org/3/movie/popular?api_key=8fd4ef3265d93db37099c1422dc5f6d9&language=en-US&page=1"
@@ -46,6 +46,5 @@ class AllMovies {
         };
     };
 };
-
 
 module.exports = AllMovies;
