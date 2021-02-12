@@ -1,63 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${title}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
-    <link rel="stylesheet" href="/styles/stylesheet.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/stylesheet.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
-    <nav class="navbar main-nav  is-dark" role="navigation" aria-label="main navigation">
-        <div class="navbar-start">
-            <a class="navbar-item" href='/'>Home</a>
-        </div>
+<main class="wrapper">
+<header>
+    <nav class="main-nav">
+        <h1 class="main-nav-title">CineFile</h1>
+        <ul class="main-nav-menu">
+            <li><a href='/'>Home</a></li>
+        <li><a href='/users/login'>Login</a></li>
+        <li><a href='/users/logout'>Logout</a></li>
+        <li><a href='/movies'>All Movies</a></li>
+        <li><a href='/myplaylists'>My Movies</a></li>
+        </ul>
     </nav>
-    <h1 class="container">${title}</h1>
-    <main class="container">${body}</main>
+</header>
 
-       <!-- Carousel Slider Popular--> 
-   <h1>Popular</h1>
-   <div class="carousel">
-    <div class="carouselbox">
-      <!-- Movie Data will come here  -->
-    </div>
-    <a class="switchLeft sliderButton" onclick="sliderScrollLeft()"><</a>
-    <a class="switchRight sliderButton" onclick="sliderScrollRight()">></a>
-  </div>
+<section>
+    ${body}
+</section>
 
-  <h1>New</h1>
-  <div class="carousel">
-    <div class="carouselbox1">
-      <!-- Movie Data will come here  -->
-    </div>
-    <a class="switchLeft sliderButton" onclick="sliderScrollLeft()"><</a>
-    <a class="switchRight sliderButton" onclick="sliderScrollRight()">></a>
-  </div>
-
-  <h1>Genre</h1>
-  <div class="carousel">
-    <div class="carouselbox2">
-      <!-- Movie Data will come here  -->
-    </div>
-    <a class="switchLeft sliderButton" onclick="sliderScrollLeft()"><</a>
-    <a class="switchRight sliderButton" onclick="sliderScrollRight()">></a>
-  </div>
-
-
-<!-- Jquery needed -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-   
-    <!-- Script for bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script> 
-    <!-- Script for Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.js"></script>
-    <script src="scripts/homePage.js"></script>
+</main>
 </body>
-
 </html>

@@ -8,8 +8,6 @@ const express = require('express'),
     session = require('express-session'),
     app = express();
 
-const axios = require('axios');
-
 const es6Renderer = require('express-es6-template-engine');
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
@@ -33,15 +31,13 @@ SERVER.listen(PORT, HOSTNAME, () => {
 });
 
 const rootController = require('./routes/index');
+const moviesController = require('./routes/movies');
+const reviewsController = require('./routes/reviews');
 const usersController = require('./routes/users');
-const allmoviesController = require('./routes/allmovies');
-const single_movieController = require('./routes/single-movie');
 const myplaylistsController = require('./routes/myplaylists');
-const single_playlistController = require('./routes/single-playlist');
 
 app.use('/', rootController);
+app.use('/movies', moviesController);
+app.use('/reviews', reviewsController);
 app.use('/users', usersController);
-app.use('/allmovies', allmoviesController);
-app.use('/singlemovies', single_movieController);
 app.use('/myplaylists', myplaylistsController);
-app.use('/singleplaylist', single_playlistController);

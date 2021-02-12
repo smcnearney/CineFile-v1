@@ -9,7 +9,7 @@ const express = require('express'),
 router.get('/', async(req, res, next) => {
     res.render('template', {
         locals: {
-            title: 'Welcome to the greatest movie site in the world!',
+            title: 'CineFILE',
         },
         partials: {
             body: 'partials/home',
