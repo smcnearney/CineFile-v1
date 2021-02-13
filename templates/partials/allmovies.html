@@ -272,7 +272,7 @@
 <h1>TV Movies</h1>
 
 <div class="output">
-    <p>${tvmoviesMovieData.map(scifi => `
+    <p>${tvMovieData.map(tvmovies => `
         <ul>
             <li>
                 <a href='./movies/${tvmovies.id}'><img src="https://image.tmdb.org/t/p/w500/${tvmovies.poster_path}" alt="${tvmovies.title} Poster" /></a>
@@ -289,7 +289,7 @@
 <h1>Thriller</h1>
 
 <div class="output">
-    <p>${thrillerMovieData.map(scifi => `
+    <p>${thrillerMovieData.map(thriller => `
         <ul>
             <li>
                 <a href='./movies/${thriller.id}'><img src="https://image.tmdb.org/t/p/w500/${thriller.poster_path}" alt="${thriller.title} Poster" /></a>

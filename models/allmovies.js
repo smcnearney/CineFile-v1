@@ -255,7 +255,7 @@ class AllMovies {
                 "https://api.themoviedb.org/3/discover/movie?api_key=8fd4ef3265d93db37099c1422dc5f6d9&with_genres=37&language=en-US&page=1"
             ).then((response) => response.json());
             const westernMovie = westernMovieData.results;
-            return westernrMovie;
+            return westernMovie;
         } catch (err) {
             return err.message;
         };

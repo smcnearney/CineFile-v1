@@ -264,6 +264,35 @@ flex-basis: 300px;  */
     padding-bottom: 0;
 }
 
+.form p {
+    color: #f9f9f9;
+}
+
+.field {
+    color: #f9f9f9;
+}
+
+label {
+    margin-left: 12px;
+}
+
+.form {
+    padding: 35px;
+}
+
+.reglog {
+    padding: 35px;
+    color: #555555;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 300;
+}
+
+.reglog a{
+    font-size: 18px;
+}
+
 @media (min-width: 640px) {
 
     .main-nav {
