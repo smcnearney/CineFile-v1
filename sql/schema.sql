@@ -6,9 +6,7 @@ CREATE TABLE users (
 
 CREATE TABLE movies (
     id serial PRIMARY KEY,
-    tmdb_id INTEGER NOT NULL,
-    user_id integer REFERENCES users (id)
-    movie_id varchar (100)
+    movie_id varchar(1000)
 );
 
 CREATE TABLE reviews (
@@ -20,16 +18,15 @@ CREATE TABLE reviews (
   
 );
 
-CREATE TABLE my_movies_list (
+CREATE TABLE movie_lists (
     id serial PRIMARY KEY,
     list_title varchar(100),
-    movie_id varchar(100),
-    user_id integer REFERENCES users (id),
-    
+    user_id integer REFERENCES users (id)
 );
 
-CREATE TABLE my_movies_inside_list (
+CREATE TABLE my_movies (
     id serial PRIMARY KEY,
-    list_id integer REFERENCES my_movies_list (id),
-    movie_id integer REFERENCES movies (id)
+    list_id integer REFERENCES movie_lists (id),
+    movie_id integer REFERENCES movies (id),
+    user_id integer REFERENCES users (id)
 );

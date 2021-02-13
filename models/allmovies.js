@@ -275,5 +275,4 @@ class AllMovies {
     };
 };
 
-
 module.exports = AllMovies;
