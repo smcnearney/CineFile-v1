@@ -1,6 +1,6 @@
 'use strict';
 
-console.log("We made it to index");
+// console.log("We made it to index");
 
 const express = require('express'),
     router = express.Router();

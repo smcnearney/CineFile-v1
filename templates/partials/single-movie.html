@@ -7,6 +7,33 @@
         <p><span class="yellow"><strong>Runtime</strong></span><br /> ${singleMovieData.runtime} Minutes</p>
         <p><span class="yellow"><strong>Overview</strong></span><br /> ${singleMovieData.overview}</p>
         <p><span class="yellow"><a href="${singleMovieData.homepage}" target="_blank"><strong>Website</strong></a></span><br /></p>
+        ${!!is_logged_in ? `
+            <p><form action="/myplaylists/add" method="POST">
+                Create a List:
+                <label>
+                    <input type="text" name="list_title" placeholder="List Name" required />
+                    <input type="hidden" value="${user_id}" name="user_id" />
+                    <button type="submit">Create</button>
+                </label>
+            </form>
+            </p>
+            <p>
+            <form action="/myplaylists/:list_id/add" method="POST">
+                Add to a List:
+                    <select>
+                        <option value="${singlelistData}">
+                            ${singlelistData}
+                        </option>
+                    </select>
+                <input type="hidden" value="${singleMovieData.id}" name="movie_id" />
+                <input type="hidden" value="${user_id}" name="user_id" />
+                <button type="submit">Add</button>
+            </form>
+            </p>
+            ` : `
+            <p class="reglog"><a href='/users/signup'>Register</a> & <a href='/users/login'>Login</a> to leave a review!</p>
+            `
+        }
     </div>
 </div>
 
@@ -52,4 +79,17 @@ ${!!is_logged_in ? `
     <p class="reglog"><a href='/users/signup'>Register</a> & <a href='/users/login'>Login</a> to leave a review!</p>
     `
 }
+</section>
+
+<section>
+    <div class="clearfix">
+        <ul style="margin-top: 16px;">
+            ${reviewData.map(review => `
+                <li>
+                    <span class="score" style="display: inline-block; width: 100%;">${review.score} Stars</span>
+                    <p>${review.review_content}</p>
+                </li>
+            `).join('')}
+        </ul>
+    </div>
 </section>

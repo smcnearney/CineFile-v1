@@ -40,16 +40,6 @@ class User {
             return error.message;
         }
     }
-
-    // static async getMyPlaylists(user_id) {
-    //     const query = `SELECT * FROM my_movies_list WHERE user_id = '${user_id}';`;
-    //     try {
-    //         const response = await db.any(query);
-    //         return response;
-    //     } catch (err) {
-    //         return err.message;
-    //     }
-    // }
-}
+};
 
 module.exports = User;

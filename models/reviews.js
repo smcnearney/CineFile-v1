@@ -1,23 +1,21 @@
 'use strict'
 
-
 const db = require('./conn.js');
 
 class Reviews {
-    constructor(id, score, tmdb_id, user_id, content, movie_id) {
+    constructor(id, score, review_content, user_id, movie_id) {
         this.id = id;
         this.score = score;
-        this.tmdb_id = tmdb_id;
-        this.uer = user_id
-        this.content = content;
+        this.review_content = review_content;
+        this.user_id = user_id;
         this.movie_id = movie_id;
     };
 
-    async getAllReviewsForSingleMovie() {
+    async getMovieReviews() {
         try {
-            const query = `SELECT * FROM reviews WHERE reviews.movie_id = ${tmdb_id} ORDER BY score ASC;`;
-            const response = await db.any(query);
-            return response;
+            const query = `SELECT * FROM reviews WHERE movie_id = ${this.movie_id};`;
+            const reviewData = await db.any(query);
+            return reviewData;
         } catch (err) {
             return err.message;
         };
@@ -25,16 +23,8 @@ class Reviews {
 
     async addReview() {
         try {
-            const checkExisting =
-                `SELECT * FROM movies WHERE tmdb_id = ${tmdb_id}`;
-            const checkResponse = db.any(checkExisting);
-            if (!!checkResponse) {
-                const query2 = `INSERT INTO reviews (movie_id, user_id) VALUES (${movieInsertResponse.id}, ${user_id};)`;
-                const response = await db.one(query2);
-            } else {
-                const query2 = `INSERT INTO reviews (score, content, user_id, movie_id) VALUES (${this.score}, '${this.content}', ${this.user_id}, ${this.movie_id});`;
-                const response = await db.result(query);
-            }
+            const query2 = `INSERT INTO reviews (movie_id, user_id, review_content, score) VALUES (${this.movie_id}, ${this.user_id}, '${this.review_content}', ${this.score});`;
+            const response = await db.result(query2);
             return response;
         } catch (err) {
             return err.message;
