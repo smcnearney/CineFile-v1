@@ -1,0 +1,23 @@
+<section class="height100vh">
+    <h1>My Lists</h1>
+    ${!!is_logged_in ? `
+        <form class="form clearfix" action="/myplaylists/add" method="POST">
+            <p>Create a List:</p>
+            <label>
+                <input type="text" name="list_title" placeholder="List Name" required />
+                <input type="hidden" value="${user_id}" name="user_id" />
+                <button type="submit">Create</button>
+            </label>
+        </form>
+        ` : `
+        <p class="reglog"><a href='/users/signup'>Register</a> & <a href='/users/login'>Login</a> to create Playlists!</p>
+        `
+    }
+    ${allListsData.map(list => `
+    <p>
+        <a href="/myplaylists/${list.id}">
+            <p>${list.list_title}</p>
+        </a>
+    </p>
+    ` ).join('')}
+</section>
