@@ -13,7 +13,7 @@ class Reviews {
 
     async getMovieReviews() {
         try {
-            const query = `SELECT * FROM reviews WHERE movie_id = ${this.movie_id};`;
+            const query = `SELECT * FROM reviews WHERE movie_ref = ${this.movie_ref};`;
             const reviewData = await db.any(query);
             return reviewData;
         } catch (err) {
@@ -23,7 +23,7 @@ class Reviews {
 
     async addReview() {
         try {
-            const query2 = `INSERT INTO reviews (movie_id, user_id, review_content, score) VALUES (${this.movie_id}, ${this.user_id}, '${this.review_content}', ${this.score});`;
+            const query2 = `INSERT INTO reviews (score, review_content, user_ref, movie_ref) VALUES (${this.score}, ${this.review_content}, '${this.user_ref}', ${this.movie_ref});`;
             const response = await db.result(query2);
             return response;
         } catch (err) {

@@ -4,16 +4,16 @@ const { response } = require('express');
 const db = require('./conn.js'); 
 
 class SingleList {
-    constructor(id, list_id, movie_id, user_id) {
+    constructor(id, list_id, user_id, movie_id) {
         this.id = id;
         this.list_id = list_id;
-        this.movie_id = movie_id;
-        this.user_id = user_id;
+        this.movie_id = user_id;
+        this.user_id = movie_id;
     }
     
-    async addMovieToList() {
+    static async addMovieToList(list_id, user_id, movie_id) {
     try {
-        const query = `INSERT INTO singlelist (list_id, movie_id, user_id) VALUES (${this.list_id}, ${this.movie_id}, ${this.user_id});`;
+        const query = `INSERT INTO singlelist (list_id, user_id, movie_id) VALUES (${list_id}, ${user_id}, ${movie_id});`;
         const response = await db.result(query);
         return response;
     } catch (err) {

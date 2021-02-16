@@ -71,21 +71,36 @@ router.post("/delete", (req, res) => {
     console.log("Delete list");
 });
 
+
+
 // ADD A MOVIE TO A PLAYLIST
-router.post('/:list_id/add', async (req, res, next) => {
-    const { list_id, movie_id, user_id } = req.body;
-    console.log("ADDING A MOVIE TO A PLAYLIST", req.body);
-    const SingleList = new SingleListModel(null, list_id, movie_id, user_id);
-    const response = await SingleList.addMovieToList();
-    console.log(response);
-    if (response.rowCount >= 1) {
-        res.redirect('back');
-    } else {
-        res.sendStatus(500);
-    }
-});
-router.post("/delete", (req, res) => {
-    console.log("Delete list");
-});
+router.post('/single-list/add', async (req, res, next) => {
+        const { id, list_id, user_id, movie_id } = req.body;
+        const addMovieToPlaylist = await SingleListModel.addMovieToList( list_id, user_id, movie_id, );
+        console.log(addMovieToPlaylist);
+        res.redirect(`../`)
+        }
+    );
+    router.post("/delete", (req, res) => {
+        console.log("Delete list");
+    });
+
+
+// // ADD A MOVIE TO A PLAYLIST
+// router.post('/single-playlist/add', async (req, res, next) => {
+//     const { list_id, movie_id, user_id } = req.body;
+//     console.log("ADDING A MOVIE TO A PLAYLIST", req.body);
+//     const SingleList = new SingleListModel(null, list_id, movie_id, user_id);
+//     const response = await SingleList.addMovieToList();
+//     console.log(response);
+//     if (response.rowCount >= 1) {
+//         res.redirect('back');
+//     } else {
+//         res.sendStatus(500);
+//     }
+// });
+// router.post("/delete", (req, res) => {
+//     console.log("Delete list");
+// });
 
 module.exports = router;
