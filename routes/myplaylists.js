@@ -1,5 +1,6 @@
 const express = require("express"),
     router = express.Router();
+const fetch = require('node-fetch');
 const MyPlaylistModel = require("../models/myplaylists");
 const SingleListModel = require('../models/singlelist.js');
 
@@ -24,10 +25,17 @@ router.get("/", async(req, res, next) => {
 router.get("/:list_id", async(req, res, next) => {
     console.log('SINGLE PLAYLIST req params are', req.params);
     const playlistID = req.params.list_id;
-    const Playlist = new MyPlaylistModel(playlistID);
-    const playlistData = await Playlist.getListData(playlistID);
-    const SingleList = new SingleListModel();
-    const singlelistData = await SingleList.getSingleListData();
+    const playlistData = await MyPlaylistModel.getListData(playlistID);
+    const movieDetailsArray = await Promise.all(playlistData.map(async movieData => {
+        const singleMovie = await fetch(
+            `https://api.themoviedb.org/3/movie/${movieData.tmdb_id}?api_key=8fd4ef3265d93db37099c1422dc5f6d9&language=en-US`
+        ).then((response) => response.json());
+        return singleMovie;
+    }));
+    console.log(movieDetailsArray);
+
+    const SingleList = new SingleListModel(); ////THIS IS WHAT TO DO WHEN YOU CHANGE THE MODEL FROM AN ASYNC INSTANCE TO A STATIC OBJECT
+    const singlelistData = await SingleListModel.getSingleListData(req.session.user_id);
     console.log('SINGLELISTDATA IS', singlelistData);
   
 
@@ -36,6 +44,7 @@ router.get("/:list_id", async(req, res, next) => {
             title: playlistData.title,
             playlistData,
             singlelistData,
+            movieDetailsArray,
             is_logged_in: req.session.is_logged_in,
             user_id: req.session.user_id
         },

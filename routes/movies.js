@@ -74,10 +74,14 @@ router.get("/:id", async(req, res, next) => {
     const reviewData = await Reviews.getMovieReviews(movieID);
     console.log('Review Data is',reviewData);
     const SingleList = new SingleListModel();
-    const singlelistData = await SingleList.getSingleListData();
+
+    const singlelistData = await SingleListModel.getSingleListData(req.session.user_id);
+
+    // const singlelistData = await SingleList.getSingleListData();
     const playlistID = req.params.list_id;
     const Playlist = new MyPlaylistModel(playlistID);
-    const playlistData = await Playlist.getListData(playlistID);
+    
+    const playlistData = await MyPlaylistModel.getListData(req.session.user_id);
 
     res.render("template", {
         locals: {
