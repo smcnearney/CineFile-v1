@@ -23,7 +23,7 @@ class Reviews {
 
     async addReview() {
         try {
-            const query2 = `INSERT INTO reviews (movie_id, user_id, review_content, score) VALUES (${this.movie_id}, ${this.user_id}, '${this.review_content}', ${this.score});`;
+            const query2 = `INSERT INTO reviews (score, review_content, user_id, movie_id) VALUES (${this.score}, '${this.review_content}', ${this.user_id}, ${this.movie_id});`;
             const response = await db.result(query2);
             return response;
         } catch (err) {

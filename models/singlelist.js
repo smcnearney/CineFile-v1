@@ -4,16 +4,16 @@ const { response } = require('express');
 const db = require('./conn.js'); 
 
 class SingleList {
-    constructor(id, list_id, movie_id, user_id) {
+    constructor(id, s_list_id, s_movie_id, s_user_id) {
         this.id = id;
-        this.list_id = list_id;
-        this.movie_id = movie_id;
-        this.user_id = user_id;
+        this.s_list_id = s_list_id;
+        this.s_movie_id = s_movie_id;
+        this.s_user_id = s_user_id;
     }
     
-    async addMovieToList() {
+    static async addMovieToList(tmdb_id, user_id) {
     try {
-        const query = `INSERT INTO singlelist (list_id, movie_id, user_id) VALUES (${this.list_id}, ${this.movie_id}, ${this.user_id});`;
+        const query = `INSERT INTO singlelist (tmdb_id, user_id) VALUES (${tmdb_id}, ${user_id});`;
         const response = await db.result(query);
         return response;
     } catch (err) {
@@ -21,16 +21,11 @@ class SingleList {
     }
     }
 
-    static async getSingleListData(user_id) {
+    static async getListData(user_id) {
         try {
-            console.log(user_id);
-            const query = `SELECT myplaylists.list_title, movies.tmdb_id
-            FROM singlelist 
-            INNER JOIN movies ON singlelist.movie_id  = movies.id
-            INNER JOIN myplaylists ON singlelist.list_id = myplaylists.id 
-            WHERE singlelist.user_id  = ${user_id};`;
+            const query = `SELECT * FROM singlelist WHERE singlelist.user_id = ${user_id};`;
             const singlelistData = await db.any(query);
-            console.log('SINGLE LIST DATA IS', singlelistData);
+            console.log('singlelistData is:', singlelistData)
             return singlelistData;
         } catch (err) {
             return err.message;

@@ -32,12 +32,12 @@ SERVER.listen(PORT, HOSTNAME, () => {
 
 const rootController = require('./routes/index');
 const moviesController = require('./routes/movies');
-const reviewsController = require('./routes/reviews');
+// const reviewsController = require('./routes/reviews');
 const usersController = require('./routes/users');
 const myplaylistsController = require('./routes/myplaylists');
 
 app.use('/', rootController);
 app.use('/movies', moviesController);
-app.use('/reviews', reviewsController);
+// app.use('/reviews', reviewsController);
 app.use('/users', usersController);
 app.use('/myplaylists', myplaylistsController);

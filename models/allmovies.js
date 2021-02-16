@@ -261,7 +261,7 @@ class AllMovies {
         };
     };
 
-    async getMovieData(movieID) {
+    static async getMovieData(movieID) {
         try {
             const singleMovieData = await fetch(
                 `https://api.themoviedb.org/3/movie/${movieID}?api_key=8fd4ef3265d93db37099c1422dc5f6d9&language=en-US`

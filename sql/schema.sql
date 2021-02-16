@@ -25,7 +25,6 @@ CREATE TABLE myplaylists (
 
 CREATE TABLE singlelist (
     id serial PRIMARY KEY,
-    list_id integer REFERENCES myplaylists (id),
-    movie_id integer REFERENCES movies (id),
+    tmdb_id integer,
     user_id integer REFERENCES users (id)
 )

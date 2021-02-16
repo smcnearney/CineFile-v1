@@ -5,8 +5,8 @@ const router = express.Router();
 const fetch = require("node-fetch");
 const MoviesModel = require("../models/allmovies");
 const ReviewsModel = require("../models/reviews");
-const SingleListModel = require('../models/singlelist.js');
-const MyPlaylistModel = require('../models/myplaylists.js');
+// const SingleListModel = require('../models/singlelist.js');
+// const MyPlaylistModel = require('../models/myplaylists.js');
 
 router.get("/", async(req, res, next) => {
     const popularMovieData = await MoviesModel.getPopularMovies();
@@ -68,27 +68,27 @@ router.get("/:id", async(req, res, next) => {
     const movieID = parseInt(id);
     // console.log('what is the id saying', id);
     // console.log('what is the movieID saying', movieID);
-    const Movie = new MoviesModel(movieID);
-    const singleMovieData = await Movie.getMovieData(movieID);
-    console.log('singleMovieData is', singleMovieData);
+   const singleMovieData = await MoviesModel.getMovieData(movieID);
+   console.log('singleMovieData is', singleMovieData);
+    // const Movie = new MoviesModel(movieID);
+    // const singleMovieData = await Movie.getMovieData(movieID);
+    
     const Reviews = new ReviewsModel(null, null, null, null, movieID);
-    const reviewData = await Reviews.getMovieReviews(movieID);
+    const reviewData = await Reviews.getMovieReviews();
     console.log('reviewData is:', reviewData);
     
 
-    const singlelistData = await SingleListModel.getSingleListData(req.session.user_id);
-    console.log('singlelistData is:', singlelistData);
+    // const singlelistData = await SingleListModel.getSingleListData(req.session.user_id);
+    // console.log('singlelistData is:', singlelistData);
     
-    const playlistData = await MyPlaylistModel.getListData(req.session.user_id);
-    console.log('playlistData is:', playlistData);
+    // const playlistData = await MyPlaylistModel.getListData(req.session.user_id);
+
 
     res.render("template", {
         locals: {
             title: singleMovieData.title,
             singleMovieData,
             reviewData,
-            singlelistData,
-            playlistData,
             is_logged_in: req.session.is_logged_in,
             user_id: req.session.user_id
         },

@@ -1,23 +1,15 @@
-<section class="height100vh">
-    <h1>My Lists</h1>
-    ${!!is_logged_in ? `
-        <form class="form clearfix" action="/myplaylists/add" method="POST">
-            <p>Create a List:</p>
-            <label>
-                <input type="text" name="list_title" placeholder="List Name" required />
-                <input type="hidden" value="${user_id}" name="user_id" />
-                <button type="submit">Create</button>
-            </label>
-        </form>
-        ` : `
-        <p class="reglog"><a href='/users/signup'>Register</a> & <a href='/users/login'>Login</a> to create Playlists!</p>
-        `
-    }
-    ${allListsData.map(list => `
-    <p>
-        <a href="/myplaylists/${list.id}">
-            <p>${list.list_title}</p>
-        </a>
-    </p>
-    ` ).join('')}
-</section>
+<section>
+    <h1>Watched List</h1>
+        <div class="output">
+            <p>${movieDetailsArray.map(movie => `
+                <ul>
+                    <li>
+                        <a href='../../movies/${movie.id}'><img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title} Poster" /></a>
+                    </li>
+                    <li>${movie.title}</li>
+                    <li>${movie.release_date}</li>
+                    <li><a href='../../movies/${movie.id}'>Read More</a></li>
+                </ul>`).join('')}</p>
+        </div>
+        </section>
+    
