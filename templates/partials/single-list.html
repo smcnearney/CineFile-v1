@@ -1,1 +1,15 @@
-<section class="height100vh">THIS IS THE SINGLE PLAYLIST PAGE - THIS SHOULD HAVE THE TITLE OF THE PLAYLIST AND ALL OF THE MOVIES THAT ARE ON THE PLAYLIST</section>
+<section class="height100vh">
+    <h1>${title}</h1>
+    
+    <div class="output">
+        <p>${movieDetailsArray.map(movie => `
+            <ul>
+                <li>
+                    <a href='./movies/${movie.id}'><img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title} Poster" /></a>
+                </li>
+                <li>${movie.title}</li>
+                <li>${movie.release_date}</li>
+                <li><a href='./movies/${movie.id}'>Read More</a></li>
+            </ul>`).join('')}</p>
+    </div>
+    </section>

@@ -1,6 +1,5 @@
 'use strict'
 
-const { response } = require('express');
 const db = require('./conn.js'); 
 
 class Lists {
@@ -10,9 +9,9 @@ class Lists {
         this.user_id = user_id;
     }
 
-    static async getAllLists() {
+    static async getAllLists(userID) {
         try {
-            const query = `SELECT * FROM myplaylists;`;
+            const query = `SELECT * FROM myplaylists WHERE user_id = ${userID};`;
             const allListsData = await db.any(query);
             return allListsData;
         } catch (err) {
@@ -20,10 +19,14 @@ class Lists {
         }
     }
 
-    async getListData() {
+    static async getListData(list_id) {
         try {
-            const query = `SELECT * FROM myplaylists WHERE id = ${this.id}`;
-            const playlistData = await db.one(query);
+            const query = `SELECT myplaylists.list_title, movies.tmdb_id
+            FROM singlelist 
+            INNER JOIN movies ON singlelist.movie_id  = movies.id
+            INNER JOIN myplaylists ON singlelist.list_id = myplaylists.id 
+            WHERE singlelist.id  = ${list_id};`;
+            const playlistData = await db.any(query);
             return playlistData;
         } catch (err) {
             return err.message;

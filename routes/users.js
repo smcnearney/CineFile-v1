@@ -6,7 +6,7 @@ const express = require('express'),
     UsersModel = require('../models/users');
 
 // GET users listing. 
-router.get('/signup', (req, res, next) => {
+router.get('/signup', (req, res) => {
     res.render('template', {
         locals: {
             title: 'Register Here!',
@@ -19,7 +19,7 @@ router.get('/signup', (req, res, next) => {
     });
 });
 
-router.get('/login', (req, res, next) => {
+router.get('/login', (req, res) => {
     res.render('template', {
         locals: {
             title: 'User Log In',

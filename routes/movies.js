@@ -53,8 +53,7 @@ router.get("/", async(req, res, next) => {
             thrillerMovieData,
             warMovieData,
             westernMovieData,
-            is_logged_in: req.session.is_logged_in,
-            user_id: req.session.user_id
+            is_logged_in: req.session.is_logged_in
         },
         partials: {
             body: "partials/allmovies",
@@ -62,22 +61,30 @@ router.get("/", async(req, res, next) => {
     });
 });
 
-router.get("/:id", async(req, res, next) => {
+router.get("/:id", async(req, res) => {
     // console.log('req params are', req.params);
     const { id } = req.params;
     const movieID = parseInt(id);
-    // console.log('what is the id saying', id);
-    // console.log('what is the movieID saying', movieID);
     const Movie = new MoviesModel(movieID);
-    const singleMovieData = await Movie.getMovieData(movieID);
-    const Reviews = new ReviewsModel(null, null, null, null, movieID);
-    const reviewData = await Reviews.getMovieReviews(movieID);
-    console.log('Review Data is',reviewData);
-    const SingleList = new SingleListModel();
-    const singlelistData = await SingleList.getSingleListData();
-    const playlistID = req.params.list_id;
-    const Playlist = new MyPlaylistModel(playlistID);
-    const playlistData = await Playlist.getListData(playlistID);
+    // const singleMovieData = await Movie.getMovieData(movieID);
+    
+    // const Reviews = new ReviewsModel(null, null, null, null, movieID);
+    // const reviewData = await Reviews.getMovieReviews(movieID);
+    
+    // const SingleList = new SingleListModel();
+    // const singlelistData = await SingleList.getSingleListData();
+    
+    // const playlistID = req.params.list_id;
+    // const Playlist = new MyPlaylistModel(playlistID);
+    // const playlistData = await Playlist.getListData(playlistID);
+    
+    const singleMovieData = await MoviesModel.getMovieData(movieID);
+
+    const reviewData = await ReviewsModel.getMovieReviews(movieID);
+
+    const singlelistData = await SingleListModel.getSingleListData(movieID);
+
+    const playlistData = await MyPlaylistModel.getListData(movieID);
 
     res.render("template", {
         locals: {

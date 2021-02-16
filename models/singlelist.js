@@ -1,6 +1,5 @@
 'use strict'
 
-const { response } = require('express');
 const db = require('./conn.js'); 
 
 class SingleList {
@@ -21,16 +20,22 @@ class SingleList {
     }
     }
 
-    async getSingleListData() {
+    static async getSingleListData(user_id) {
         try {
-            const query = `SELECT * FROM singlelist`;
-            const singlelistData = await db.one(query);
+            console.log(user_id);
+            const query = `SELECT myplaylists.list_title, movies.tmdb_id
+            FROM singlelist 
+            INNER JOIN movies ON singlelist.movie_id  = movies.id
+            INNER JOIN myplaylists ON singlelist.list_id = myplaylists.id 
+            WHERE singlelist.user_id  = ${user_id};`;
+            const singlelistData = await db.any(query);
             console.log('SINGLE LIST DATA IS', singlelistData);
             return singlelistData;
         } catch (err) {
             return err.message;
         }
     }
+
 };
 
 module.exports = SingleList;
