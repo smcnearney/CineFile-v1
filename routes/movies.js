@@ -70,18 +70,17 @@ router.get("/:id", async(req, res, next) => {
     // console.log('what is the movieID saying', movieID);
     const Movie = new MoviesModel(movieID);
     const singleMovieData = await Movie.getMovieData(movieID);
+    console.log('singleMovieData is', singleMovieData);
     const Reviews = new ReviewsModel(null, null, null, null, movieID);
     const reviewData = await Reviews.getMovieReviews(movieID);
-    console.log('Review Data is',reviewData);
-    const SingleList = new SingleListModel();
+    console.log('reviewData is:', reviewData);
+    
 
     const singlelistData = await SingleListModel.getSingleListData(req.session.user_id);
-
-    // const singlelistData = await SingleList.getSingleListData();
-    const playlistID = req.params.list_id;
-    const Playlist = new MyPlaylistModel(playlistID);
+    console.log('singlelistData is:', singlelistData);
     
     const playlistData = await MyPlaylistModel.getListData(req.session.user_id);
+    console.log('playlistData is:', playlistData);
 
     res.render("template", {
         locals: {

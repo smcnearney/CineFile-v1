@@ -21,9 +21,11 @@
             <form action="/myplaylists/:list_id/add" method="POST">
                 Add to a List:
                     <select>
-                        <option value="${singlelistData}">
-                            ${singlelistData}
-                        </option>
+                        ${singlelistData.map(lists => `
+                            <option value="${lists.list_title}">
+                                ${lists.list_title}
+                            </option>
+                            `).join('')}
                     </select>
                 <input type="hidden" value="${singleMovieData.id}" name="movie_id" />
                 <input type="hidden" value="${user_id}" name="user_id" />
